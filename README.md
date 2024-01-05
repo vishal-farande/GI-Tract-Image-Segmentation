@@ -5,3 +5,11 @@ We use the Dice score to evaluate the mask predicted by our model against the tr
 2|Mpred ∩ Mtrue|
 |Mpred| + |Mtrue|
 where Mpred is the set of pixels masked in (i.e. predicted to class ”1”) by the model, Mtrue is the set of pixels masked in by ground truth mask, and the absolute value means the number of pixels.
+
+
+## Dataset Description
+In this project we are segmenting organs cells in images. The training annotations are provided as RLE-encoded masks, and the images are in 16-bit grayscale PNG format.
+
+Each case in this project is represented by multiple sets of scan slices (each set is identified by the day the scan took place). Some cases are split by time (early days are in train, later days are in test) while some cases are split by case - the entirety of the case is in train or test. The goal of this project is to be able to generalize to both partially and wholly unseen cases.
+
+Note that, in this case, the test set is entirely unseen. It is roughly 50 cases, with a varying number of days and slices, as seen in the training set.
